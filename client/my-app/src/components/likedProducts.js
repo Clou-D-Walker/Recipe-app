@@ -12,10 +12,7 @@ const LikedProducts = () => {
 
   const fetchLikedProducts = async () => {
     try {
-      // Make a GET request to the /api/liked-products endpoint
-      const response = await fetch(
-        "https://recipe-app-mern.onrender.com/auth/likedRecipes"
-      );
+      const response = await fetch("http://localhost:5100/auth/likedRecipes");
 
       if (!response.ok) {
         toast.error("Failed to fetch liked products");
@@ -38,7 +35,7 @@ const LikedProducts = () => {
         )
       ) {
         const response = await fetch(
-          `https://recipe-app-mern.onrender.com/auth/removeLiked/${recipeId}`,
+          `http://localhost:5100/auth/removeLiked/${recipeId}`,
           {
             method: "DELETE",
           }

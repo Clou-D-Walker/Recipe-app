@@ -16,16 +16,14 @@ const Login = () => {
       setShowError(true);
       return;
     }
-
+    
+    // you can add your email validation logic here if needed
     try {
-      let response = await fetch(
-        "https://recipe-app-mern.onrender.com/auth/login",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: Email, password }),
-        }
-      );
+      let response = await fetch("http://localhost:5100/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: Email, password }),
+      });
 
       response = await response.json();
 
