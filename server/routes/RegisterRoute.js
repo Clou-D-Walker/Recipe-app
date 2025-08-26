@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const LoginController = require("../controllers/LoginController");
+const User = require("../Schema/UserSchema");
+const RegisterController = require("../controllers/RegisterController");
 
-router.post("/login", LoginController);
+router.post("/register", RegisterController);
+
 function verifyToken(req, res, next) {
   const token = req.header("Authorization");
 
